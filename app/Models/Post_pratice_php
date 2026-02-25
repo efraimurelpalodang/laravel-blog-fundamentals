@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+class Post 
+{
+    private static $blog_posts = [
+        [
+            'title' => 'Judul pertama',
+            'slug' => 'judul-pertama',
+            'author' => 'Jhon Dae',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo voluptate, eius facilis',
+            'body' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo voluptate, eius facilis veniam quibusdam esse accusamus a laborum dignissimos laboriosam dolores odio consequuntur totam culpa mollitia vitae? Eos quam laudantium sunt illo odit dolores non aliquam debitis quo aliquid, aut consequuntur ipsam rem optio culpa placeat aperiam inventore voluptatibus facilis accusantium architecto fugit cum veniam fugiat? Non similique illo animi quos earum! Quibusdam nemo quam fugiat asperiores! Eius alias vero, tempore illo reprehenderit quae commodi praesentium maxime consequuntur corporis aliquam?',
+        ],
+        [
+            'title' => 'Judul Penulis Kedua',
+            'slug' => 'judul-kedua',
+            'author' => 'Alice',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nulla quia neque ',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nulla quia neque adipisci nisi ad, similique et voluptate nihil? Esse quisquam qui iste molestiae aliquid corrupti, sed eligendi vel expedita, quo, asperiores necessitatibus et amet minima adipisci officia aliquam alias temporibus ut. Quo excepturi nam velit aliquid quidem? A voluptatibus dicta, voluptas fuga rem distinctio itaque animi minima veniam aliquid, molestias harum nulla quasi ad aut commodi eius sapiente quae!',
+        ],
+        [
+            'title' => 'Judul Ketiga',
+            'slug' => 'judul-ketiga',
+            'author' => 'Joseph',
+            'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptate dolores',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae voluptate dolores doloremque illo quam quisquam at laudantium tempore incidunt nisi asperiores commodi, perferendis eum. Enim quam veritatis itaque, impedit perferendis reiciendis. Dolore aut autem iusto omnis labore dolor, doloremque dolorum quaerat deserunt libero magnam aliquam vero voluptas? Eligendi voluptates, delectus ipsa quaerat dolorem vero numquam.',
+        ],
+    ];
+
+    public static function all() {
+        return collect(self::$blog_posts);
+    }
+
+    public static function find($slug) {
+        $posts = static::all();
+        return $posts->firstWhere('slug', $slug);
+    }
+}
